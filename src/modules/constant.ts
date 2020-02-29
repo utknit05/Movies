@@ -1,0 +1,10 @@
+export const CHANGE_SEARCH_FIELD = 'CHANGE_SEARCH_FIELD';
+export const TOGGLE_SEARCH = 'TOGGLE_SEARCH';
+export const CHANGE_CATEGORY = 'CHANGE_CATEGORY';
+export const GET_POPULAR_MOVIES = 'GET_POPULAR_MOVIES';
+export const GET_TREND_MOVIES = 'GET_TRENDING_MOVIES';
+export const GET_TOPRATED_MOVIES = 'GET_TOPRATED_MOVIES';
+export const GET_NEWEST_MOVIES = 'GET_NEWEST_MOVIES';
+export const API_KEY = '3a94078fb34b772a31d9a1348035bed7';
+export const DISCOVER_MOVIES = 'https://api.themoviedb.org/3/discover/movie';
+export const MOVIE_IMAGE = 'https://image.tmdb.org/t/p/original';

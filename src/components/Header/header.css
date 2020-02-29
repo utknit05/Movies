@@ -1,0 +1,28 @@
+.headerWrapper {
+    color: rgba(15, 186, 248, 0.92);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.heading {
+    color: white;
+    padding: 20px;
+    font-size: 2em;
+}
+
+.menu {
+    padding-top: 27px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.field {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.active {
+    color: white;
+}
