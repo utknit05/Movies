@@ -6,6 +6,7 @@ import {
     GET_NEWEST_MOVIES,
     GET_TOPRATED_MOVIES,
     GET_TREND_MOVIES,
+    FIND_MOVIES,
 } from "./constant";
 import { Action, State } from './interfaces';
 
@@ -17,6 +18,7 @@ const initialState = {
     trendMovies: [],
     topratedMovies: [],
     newestMovies: [],
+    searchedMovies: [],
 };
 
 const rootReducer = (state: State = initialState, action: Action) => {
@@ -42,7 +44,10 @@ const rootReducer = (state: State = initialState, action: Action) => {
     
         case GET_NEWEST_MOVIES:
             return { ...state, newestMovies: payload };
-        
+
+        case FIND_MOVIES:
+            return { ...state, searchedMovies: payload };
+
         default:
             return state;        
     }

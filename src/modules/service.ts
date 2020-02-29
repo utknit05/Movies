@@ -1,6 +1,7 @@
 import {
   API_KEY,
   DISCOVER_MOVIES,
+  SEARCH_MOVIES,
 } from './constant';
 
 export const getPopularMovies = () => fetch(`${DISCOVER_MOVIES}?api_key=${API_KEY}&sort_by=popularity.desc`)
@@ -21,4 +22,7 @@ export const getNewestMovies = () => {
 }
 
 export const getTopratedMovies = () => fetch(`${DISCOVER_MOVIES}?api_key=${API_KEY}&certification_country=US&certification=R&sort_by=vote_average.desc`)
-    .then(res => res.json());
+  .then(res => res.json());
+
+export const searchMovies = (searchField: string) => fetch(`${SEARCH_MOVIES}?api_key=${API_KEY}&query=${searchField}`)
+  .then(res => res.json());

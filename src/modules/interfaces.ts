@@ -11,6 +11,7 @@ export interface State {
     trendMovies: Movie[];
     topratedMovies: Movie[];
     newestMovies: Movie[];
+    searchedMovies: Movie[];
 }
 
 export interface MovieApiObject {

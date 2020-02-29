@@ -4,6 +4,7 @@ import {
     getTopratedMovies,
     getNewestMovies,
     getTrendMovies,
+    searchMovies,
 } from './service';
 import {
     CHANGE_SEARCH_FIELD,
@@ -13,6 +14,7 @@ import {
     GET_NEWEST_MOVIES,
     GET_TOPRATED_MOVIES,
     GET_TREND_MOVIES,
+    FIND_MOVIES,
 } from './constant';
 import { transformMovies } from './transformer';
 import { MovieApiObject } from './interfaces';
@@ -67,3 +69,12 @@ export const fetchNewestMovie = (dispatch: Dispatch) => {
           payload: res,
       }))
 }
+
+export const findMovies = (searchField: string, dispatch: Dispatch) => {
+    searchMovies(searchField)
+      .then(res => res.results.map((movie: MovieApiObject) => transformMovies(movie)))
+      .then(res => dispatch({
+        type: FIND_MOVIES,
+        payload: res,
+      }))
+};

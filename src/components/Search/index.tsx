@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dispatch } from 'redux';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeSearchField, toggleSearch, changeCategory } from '../../modules/action';
+import { changeSearchField, toggleSearch, changeCategory, findMovies } from '../../modules/action';
 import { State } from '../../modules/interfaces';
 import './search.css';
 
@@ -10,9 +10,14 @@ const searchIcon = <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width
 const Search = () => {
     const searchActive = useSelector((state: State) => state.searchActive);
     const dispatch: Dispatch = useDispatch();
-    const onSearch = () => {
+    const onSearchClick = () => {
         dispatch(toggleSearch(true));
         dispatch(changeCategory(''));
+    }
+
+    const onSearch = (val: string) => {
+        dispatch(changeSearchField(val));
+        val && findMovies(val, dispatch);
     }
 
     return (
@@ -24,7 +29,7 @@ const Search = () => {
                         type='text'
                         placeholder='Movies/ TV Shows'
                         autoFocus
-                        onChange={(e) => dispatch(changeSearchField(e.target.value))}
+                        onChange={(e) => onSearch(e.target.value)}
                     />
                     <div className="iconWrapper">
                         {searchIcon}
@@ -32,7 +37,7 @@ const Search = () => {
                 </>
                 : <>
                     {searchIcon}
-                    <div onClick={onSearch} style={{paddingLeft: '5px', cursor: 'pointer'}}>SEARCH</div>
+                    <div onClick={onSearchClick} style={{paddingLeft: '5px', cursor: 'pointer'}}>SEARCH</div>
                 </>
             }
         </div>
