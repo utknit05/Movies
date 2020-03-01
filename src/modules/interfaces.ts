@@ -12,6 +12,12 @@ export interface State {
     topratedMovies: Movie[];
     newestMovies: Movie[];
     searchedMovies: Movie[];
+    filteredMovies: Movie[];
+    rating: number;
+    filterType: string,
+    filterGenre: any,
+    filterFromYear: string,
+    filterToYear: string,
 }
 
 export interface MovieApiObject {
@@ -35,4 +41,6 @@ export interface Movie {
     image: string;
     title: string;
     releaseYear: string;
+    rating: number;
+    genreIds: number[];
 }

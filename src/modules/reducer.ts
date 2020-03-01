@@ -7,6 +7,12 @@ import {
     GET_TOPRATED_MOVIES,
     GET_TREND_MOVIES,
     FIND_MOVIES,
+    UPDATE_RATING,
+    GET_FILTERED_MOVIES,
+    FILTER_FROM_YEAR,
+    FILTER_GENRE,
+    FILTER_TO_YEAR,
+    FILTER_TYPE,
 } from "./constant";
 import { Action, State } from './interfaces';
 
@@ -19,6 +25,12 @@ const initialState = {
     topratedMovies: [],
     newestMovies: [],
     searchedMovies: [],
+    filteredMovies: [],
+    rating: 0,
+    filterType: 'Movie',
+    filterGenre: undefined,
+    filterFromYear: '1990',
+    filterToYear: '2020',
 };
 
 const rootReducer = (state: State = initialState, action: Action) => {
@@ -48,6 +60,24 @@ const rootReducer = (state: State = initialState, action: Action) => {
         case FIND_MOVIES:
             return { ...state, searchedMovies: payload };
 
+        case UPDATE_RATING:
+            return { ...state, rating: payload };
+
+        case GET_FILTERED_MOVIES:
+            return { ...state, filteredMovies: payload };
+
+        case FILTER_FROM_YEAR:
+            return { ...state, filterFromYear: payload };
+
+        case FILTER_TO_YEAR:
+            return { ...state, filterToYear: payload };
+
+        case FILTER_GENRE:
+            return { ...state, filterGenre: payload };
+
+        case FILTER_TYPE:
+            return { ...state, filterType: payload };
+                                            
         default:
             return state;        
     }

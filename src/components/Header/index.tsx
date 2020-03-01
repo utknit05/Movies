@@ -9,20 +9,24 @@ import {
     fetchTopratedMovie,
     fetchNewestMovie,
     fetchPopularMovie,
+    changeSearchField,
+    findMovies,
 } from '../../modules/action';
 import { State } from '../../modules/interfaces';
 import './header.css';
 
 const Header = () => {
     const dispatch: Dispatch = useDispatch();
-    const { category, searchActive, popularMovies, trendMovies, newestMovies, topratedMovies } = useSelector((state: State) => state);
+    const { category, searchActive, popularMovies, trendMovies, newestMovies, topratedMovies, searchedMovies, searchField } = useSelector((state: State) => state);
 
     useEffect(() => {
         (popularMovies.length < 1) && fetchPopularMovie(dispatch);
-    }, []);
+    }, [dispatch]);
 
     const selectCategory = (category: string) => {
         searchActive && dispatch(toggleSearch(false));
+        searchField && dispatch(changeSearchField(''));
+        searchedMovies && findMovies('', dispatch);
         dispatch(changeCategory(category));
         switch(category) {
             case 'trend':
@@ -39,8 +43,10 @@ const Header = () => {
         }
     }
 
+    const minWidth = window.innerWidth - 300;
+
     return (
-        <div className="headerWrapper">
+        <div className="headerWrapper" style={{ minWidth }}>
             <div className="heading">Discover</div>
             <div className="menu">
                 <div className={`field ${category === 'popular' ? 'active' : ''}`} onClick={() => selectCategory('popular')}>POPULAR</div>

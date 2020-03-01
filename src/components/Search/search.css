@@ -17,8 +17,3 @@ input {
 input:focus {
     outline: none;
 }
-
-.iconWrapper {
-    position: absolute;
-    right: 135px;
-}

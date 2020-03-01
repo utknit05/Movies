@@ -17,24 +17,19 @@ const Search = () => {
 
     const onSearch = (val: string) => {
         dispatch(changeSearchField(val));
-        val && findMovies(val, dispatch);
+        findMovies(val, dispatch);
     }
 
     return (
         <div className="searchWrapper">
             {
                 searchActive
-                ? <>
-                    <input
-                        type='text'
-                        placeholder='Movies/ TV Shows'
-                        autoFocus
-                        onChange={(e) => onSearch(e.target.value)}
-                    />
-                    <div className="iconWrapper">
-                        {searchIcon}
-                    </div>
-                </>
+                ?   <input
+                    type='text'
+                    placeholder='Movies/ TV Shows'
+                    autoFocus
+                    onChange={(e) => onSearch(e.target.value)}
+                />
                 : <>
                     {searchIcon}
                     <div onClick={onSearchClick} style={{paddingLeft: '5px', cursor: 'pointer'}}>SEARCH</div>
