@@ -29,7 +29,7 @@ const initialState = {
     rating: 0,
     filterType: 'Movie',
     filterGenre: undefined,
-    filterFromYear: '1990',
+    filterFromYear: '2010',
     filterToYear: '2020',
 };
 

@@ -5,9 +5,9 @@ import 'react-dropdown/style.css'
 import './filter.css';
 import { fetchGenreList } from '../../modules/service';
 import {
-  filterFromYear,
+  filterFromYearAction,
   filterGenre,
-  filterToYear,
+  filterToYearAction,
   filterType,
 } from '../../modules/action';
 import { useDispatch } from 'react-redux';
@@ -17,7 +17,7 @@ const type = [
 ];
 
 const year = [
-  '1990', '1991', '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020'
+  '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020'
 ]
 
 const Filter = () => {
@@ -63,13 +63,13 @@ const Filter = () => {
         <Dropdown
           options={year}
           className='smalldropdown'
-          onChange={val => dispatch(filterFromYear(val.value))}
+          onChange={val => dispatch(filterFromYearAction(val.value))}
         />
         <div style={{padding: '20px 5px 20px 0px'}}> -- </div>
         <Dropdown
           options={year}
           className='smalldropdown'
-          onChange={val => dispatch(filterToYear(val.value))}
+          onChange={val => dispatch(filterToYearAction(val.value))}
         />
       </div>
       <div className='filterFields'>Rating</div>

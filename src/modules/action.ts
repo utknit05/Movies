@@ -100,12 +100,12 @@ export const getFilteredMovies = (payload: (Movie | undefined)[]) => ({
     payload,
 })
 
-export const filterFromYear = (payload: string) => ({
+export const filterFromYearAction = (payload: string) => ({
     type: FILTER_FROM_YEAR,
     payload,
 })
 
-export const filterToYear = (payload: string) => ({
+export const filterToYearAction = (payload: string) => ({
     type: FILTER_TO_YEAR,
     payload,
 })
